@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>розблокай пж</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        svg {
+            width: 300px;
+            height: 300px;
+        }
+        .heart-path {
+            fill: none;
+            stroke: #ff3366;
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-dasharray: 1000; 
+            stroke-dashoffset: 1000;
+            animation: drawHeart 4s ease-in-out forwards;
+        }
+        .message {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInText 2s ease-in-out 3.5s forwards;
+        }
+        .pulse {
+            animation: drawHeart 4s ease-in-out forwards, pulseHeart 1.8s ease-in-out 4s infinite;
+        }
+        @keyframes drawHeart {
+            to {
+                stroke-dashoffset: 0;
+                fill: rgba(255, 51, 102, 0.2);
+            }
+        }
+        @keyframes pulseHeart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 15px #ff3366); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg viewBox="0 0 100 100" class="pulse">
+            <path class="heart-path" d="M50,30 C35,10 5,15 5,42 C5,65 35,80 50,90 C65,80 95,65 95,42 C95,15 65,10 50,30 Z" />
+        </svg>
+        <div class="message">розблокай пж ❤️</div>
+    </div>
+</body>
+</html>
